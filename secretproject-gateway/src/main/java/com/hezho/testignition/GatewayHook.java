@@ -39,7 +39,7 @@ public class GatewayHook extends AbstractGatewayModuleHook {
             .category(ConfigCategory.SECURITY)
             .name("secrets")
             .i18n("SecretKeeper.config.secrets.MenuTitle")
-            .page(SecretManagerPage.class)
+            .page(SecretManagerPage.class)    // 这里用到了 page
             .terms("secrets", "keys", "api keys")
             .build();
 
@@ -57,6 +57,7 @@ public class GatewayHook extends AbstractGatewayModuleHook {
         this.context = context;
 
         BundleUtil.get().addBundle("SecretKeeper", getClass(), "SecretKeeper");
+        // 显示声明一下子
         BundleUtil.get().addBundle("SecretRecord", SecretRecord.class, "SecretRecord");
 
         try {
